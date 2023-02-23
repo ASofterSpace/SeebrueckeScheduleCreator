@@ -21,6 +21,7 @@ public class ScheduleElement {
 	private String date;
 	private String dateFrom;
 	private String dateTo;
+	private Boolean showDate;
 
 	private String time;
 
@@ -38,6 +39,7 @@ public class ScheduleElement {
 		this.date = rec.getString("date");
 		this.dateFrom = rec.getString("dateFrom");
 		this.dateTo = rec.getString("dateTo");
+		this.showDate = rec.getBoolean("showDate", true);
 		this.time = rec.getString("time");
 
 		for (EntryKind eKind : kinds) {
@@ -55,6 +57,11 @@ public class ScheduleElement {
 		result.setOrRemove("date", date);
 		result.setOrRemove("dateFrom", dateFrom);
 		result.setOrRemove("dateTo", dateTo);
+		if (showDate) {
+			result.remove("showDate");
+		} else {
+			result.set("showDate", false);
+		}
 		result.setOrRemove("time", time);
 		return result;
 	}
@@ -87,6 +94,9 @@ public class ScheduleElement {
 	}
 
 	public String getDateString() {
+		if (!showDate) {
+			return "";
+		}
 		if (date == null) {
 			return serializeDate(dateFrom) + " - " + serializeDate(dateTo);
 		}
