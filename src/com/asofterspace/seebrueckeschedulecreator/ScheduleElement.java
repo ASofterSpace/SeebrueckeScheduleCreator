@@ -25,6 +25,7 @@ public class ScheduleElement {
 	private String time;
 
 	private String color;
+	private String code;
 
 	private static final String FALLBACK_DATE_FORMAT_STR = "dd.MM.yyyy";
 	private static SimpleDateFormat FALLBACK_DATE_FORMAT = new SimpleDateFormat(FALLBACK_DATE_FORMAT_STR);
@@ -42,6 +43,7 @@ public class ScheduleElement {
 		for (EntryKind eKind : kinds) {
 			if (kind.equals(eKind.getTitle())) {
 				color = eKind.getColor();
+				code = eKind.getCode();
 			}
 		}
 	}
@@ -102,6 +104,10 @@ public class ScheduleElement {
 
 	public String getColor() {
 		return color;
+	}
+
+	public String getCode() {
+		return code;
 	}
 
 }

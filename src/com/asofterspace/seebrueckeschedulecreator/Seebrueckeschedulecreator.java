@@ -49,10 +49,11 @@ public class Seebrueckeschedulecreator {
 		StringBuilder html = new StringBuilder();
 		html.append("<html>");
 		html.append("<head>");
+		html.append("<meta charset=\"utf-8\">");
 		html.append("</head>");
 		html.append("<body>");
 
-		html.append("<div style='width: 350px;'>");
+		html.append("<div style='width: 400px;'>");
 		List<ScheduleElement> schedule = database.getSchedules();
 		for (ScheduleElement scheduleElem : schedule) {
 			if (scheduleElem.getLastApplicableDate().before(DateUtils.now())) {
@@ -64,12 +65,15 @@ public class Seebrueckeschedulecreator {
 			html.append("<div>");
 			html.append(scheduleElem.getTitle());
 			html.append("</div>");
-			html.append("<div>");
+			html.append("<div style='position: relative;'>");
 			html.append(scheduleElem.getDateString());
 			if (scheduleElem.getTime() != null) {
 				html.append(" ");
 				html.append(scheduleElem.getTime());
 			}
+			html.append("<div style='position: absolute; top: 0; right: 0;'>");
+			html.append(scheduleElem.getCode());
+			html.append("</div>");
 			html.append("</div>");
 			html.append("</div>");
 		}
@@ -78,7 +82,10 @@ public class Seebrueckeschedulecreator {
 		html.append("<div style='padding-left: 150px;padding-top: 14px;'>");
 		List<EntryKind> kinds = database.getKinds();
 		for (EntryKind kind : kinds) {
-			html.append("<div>");
+			html.append("<div style='position: relative;'>");
+			html.append("<div style='position: absolute; left: -50pt; width: 48pt; text-align: right;'>");
+			html.append(kind.getCode() + ":");
+			html.append("</div>");
 			html.append("<span style='width: 16px; border-radius: 8px; height: 16px; display: inline-block; background: " + kind.getColor() + "; vertical-align: middle; margin-right: 6px;'>");
 			html.append("</span>");
 			html.append(kind.getTitle());

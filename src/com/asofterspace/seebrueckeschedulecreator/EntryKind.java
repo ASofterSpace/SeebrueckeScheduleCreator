@@ -13,16 +13,20 @@ public class EntryKind {
 
 	private String color;
 
+	private String code;
+
 
 	public EntryKind(Record rec) {
 		this.title = rec.getString("title");
 		this.color = rec.getString("color");
+		this.code = rec.getString("code");
 	}
 
 	public Record toRecord() {
 		Record result = Record.emptyObject();
 		result.set("title", title);
 		result.set("color", color);
+		result.set("code", code);
 		return result;
 	}
 
@@ -32,6 +36,10 @@ public class EntryKind {
 
 	public String getColor() {
 		return color;
+	}
+
+	public String getCode() {
+		return code;
 	}
 
 }
