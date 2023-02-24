@@ -87,10 +87,16 @@ public class ScheduleElement {
 	}
 
 	public Date getLastApplicableDate() {
-		if (date == null) {
+		if (date != null) {
+			return DateUtils.parseDate(date);
+		}
+
+		if (dateTo != null) {
 			return DateUtils.parseDate(dateTo);
 		}
-		return DateUtils.parseDate(date);
+
+		System.out.println("Entry " + title + " has no date at all assigned!");
+		return DateUtils.now();
 	}
 
 	public String getDateString() {

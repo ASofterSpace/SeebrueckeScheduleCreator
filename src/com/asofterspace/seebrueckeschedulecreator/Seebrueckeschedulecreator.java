@@ -79,7 +79,7 @@ public class Seebrueckeschedulecreator {
 		}
 		html.append("</div>");
 
-		html.append("<div style='padding-left: 150px;padding-top: 14px;'>");
+		html.append("<div style='padding-left: 200px;padding-top: 14px;'>");
 		List<EntryKind> kinds = database.getKinds();
 		for (EntryKind kind : kinds) {
 			html.append("<div style='position: relative;'>");
