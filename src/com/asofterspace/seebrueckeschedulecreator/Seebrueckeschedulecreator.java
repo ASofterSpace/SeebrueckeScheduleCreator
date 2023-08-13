@@ -15,8 +15,8 @@ import java.util.List;
 public class Seebrueckeschedulecreator {
 
 	public final static String PROGRAM_TITLE = "SeebrueckeScheduleCreator";
-	public final static String VERSION_NUMBER = "0.0.0.1(" + Utils.TOOLBOX_VERSION_NUMBER + ")";
-	public final static String VERSION_DATE = "11th of January 2023 - 11th of January 2023";
+	public final static String VERSION_NUMBER = "0.0.0.2(" + Utils.TOOLBOX_VERSION_NUMBER + ")";
+	public final static String VERSION_DATE = "11th of January 2023 - 13th of August 2023";
 
 	public static void main(String[] args) {
 
@@ -53,6 +53,12 @@ public class Seebrueckeschedulecreator {
 		html.append("</head>");
 		html.append("<body>");
 
+		// Reminder for Check-In Plenum
+		html.append("<div style='transform: rotate(90deg);position: absolute;top: 255pt;left: 75pt;font-size: 150%;'>");
+		html.append("Denkt dran: Nächstes Plenum ist Check-In bzw. Reflektionsplenum <3");
+		html.append("</div>");
+
+		// Events
 		html.append("<div style='width: 400px;'>");
 		List<ScheduleElement> schedule = database.getSchedules();
 		for (ScheduleElement scheduleElem : schedule) {
@@ -79,6 +85,7 @@ public class Seebrueckeschedulecreator {
 		}
 		html.append("</div>");
 
+		// Legend
 		html.append("<div style='padding-left: 200px;padding-top: 14px;'>");
 		List<EntryKind> kinds = database.getKinds();
 		for (EntryKind kind : kinds) {
