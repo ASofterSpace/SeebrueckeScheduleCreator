@@ -44,7 +44,9 @@ public class Database {
 		this.kinds = new ArrayList<>();
 
 		for (Record rec : kindRecs) {
-			kinds.add(new EntryKind(rec));
+			EntryKind cur = new EntryKind(rec);
+			kinds.add(cur);
+			// DEBUG OUTPUT System.out.println(cur);
 		}
 
 		List<Record> scheduleRecs = root.getArray("schedule");

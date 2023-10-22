@@ -42,4 +42,9 @@ public class EntryKind {
 		return code;
 	}
 
+	@Override
+	public String toString() {
+		return "EntryKind [title: " + this.title + ", color: " + this.color + ", code: " + this.code + "]";
+	}
+
 }

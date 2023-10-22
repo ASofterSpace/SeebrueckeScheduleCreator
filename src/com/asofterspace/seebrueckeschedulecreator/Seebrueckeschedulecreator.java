@@ -65,6 +65,7 @@ public class Seebrueckeschedulecreator {
 			if (scheduleElem.getLastApplicableDate().before(DateUtils.now())) {
 				continue;
 			}
+			// DEBUG OUTPUT System.out.println(scheduleElem);
 			ColorRGBA mainColor = ColorRGBA.fromString(scheduleElem.getColor());
 			ColorRGBA lighterColor = ColorRGBA.intermix(mainColor, ColorRGBA.WHITE, 0.5);
 			html.append("<div style='background: linear-gradient(17deg, " + lighterColor.toHexString() + ", #FFF, " + mainColor.toHexString() + ");border-radius: 12px;padding: 4px 8px;margin: 2px;box-shadow: 3px 3px 5px 3px #DDD;'>");

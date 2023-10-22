@@ -43,11 +43,15 @@ public class ScheduleElement {
 		this.time = rec.getString("time");
 
 		for (EntryKind eKind : kinds) {
-			if (kind.equals(eKind.getTitle())) {
+			if (this.kind.equals(eKind.getTitle())) {
 				color = eKind.getColor();
 				code = eKind.getCode();
+				return;
 			}
 		}
+
+		System.out.println("Encountered kind '" + this.kind + "' in entry '" + this.title + "' on " + this.date + ", " +
+			"but no entry kind has this kind as title! (It should be title, not code, that is referenced!)");
 	}
 
 	public Record toRecord() {
@@ -124,6 +128,11 @@ public class ScheduleElement {
 
 	public String getCode() {
 		return code;
+	}
+
+	@Override
+	public String toString() {
+		return "ScheduleElement [title: " + this.title + ", kind: " + this.kind + ", date: " + this.date + ", dateFrom: " + this.dateFrom + ", dateTo: " + this.dateTo + ", showDate: " + this.showDate + ", time: " + this.time + ", color: " + this.color + ", code: " + this.code + "]";
 	}
 
 }
