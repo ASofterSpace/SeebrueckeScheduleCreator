@@ -42,6 +42,11 @@ public class ScheduleElement {
 		this.showDate = rec.getBoolean("showDate", true);
 		this.time = rec.getString("time");
 
+		if (this.kind == null) {
+			System.out.println("Entry '" + this.title + "' on " + this.date + " has NO kind whatsoever!");
+			return;
+		}
+
 		for (EntryKind eKind : kinds) {
 			if (this.kind.equals(eKind.getTitle())) {
 				color = eKind.getColor();
