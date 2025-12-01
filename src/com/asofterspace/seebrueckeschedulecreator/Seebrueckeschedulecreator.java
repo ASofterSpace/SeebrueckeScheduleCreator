@@ -59,7 +59,7 @@ public class Seebrueckeschedulecreator {
 
 		if (!PRINT_VIEW) {
 			// Reminder for Check-In Plenum
-			html.append("<div style='transform: rotate(90deg);position: absolute;top:290pt;left:105px;font-size: 150%;'>");
+			html.append("<div style='transform: rotate(90deg);position: absolute;top:290pt;left:105px;font-size: 150%;padding-right:10px;'>");
 			html.append("Denkt dran: Nächstes Plenum ist Check-In bzw. Reflektionsplenum <3");
 			html.append("</div>");
 		}
