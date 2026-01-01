@@ -16,8 +16,8 @@ import java.util.List;
 public class Seebrueckeschedulecreator {
 
 	public final static String PROGRAM_TITLE = "SeebrueckeScheduleCreator";
-	public final static String VERSION_NUMBER = "0.0.0.4(" + Utils.TOOLBOX_VERSION_NUMBER + ")";
-	public final static String VERSION_DATE = "11. January 2023 - 7. May 2025";
+	public final static String VERSION_NUMBER = "0.0.0.5(" + Utils.TOOLBOX_VERSION_NUMBER + ")";
+	public final static String VERSION_DATE = "11. January 2023 - 1. January 2026";
 
 	private final static boolean PRINT_VIEW = false;
 
@@ -55,11 +55,11 @@ public class Seebrueckeschedulecreator {
 		html.append("<head>");
 		html.append("<meta charset=\"utf-8\">");
 		html.append("</head>");
-		html.append("<body>");
+		html.append("<body style='padding: 10pt;'>");
 
 		if (!PRINT_VIEW) {
 			// Reminder for Check-In Plenum
-			html.append("<div style='transform: rotate(90deg);position: absolute;top:290pt;left:105px;font-size: 150%;padding-right:10px;'>");
+			html.append("<div style='transform: rotate(90deg);position: absolute;top:305pt;left:85pt;font-size: 150%;padding-right:10px;'>");
 			html.append("Denkt dran: Nächstes Plenum ist Check-In bzw. Reflektionsplenum <3");
 			html.append("</div>");
 		}
