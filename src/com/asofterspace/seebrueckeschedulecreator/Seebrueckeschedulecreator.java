@@ -10,14 +10,15 @@ import com.asofterspace.toolbox.utils.DateUtils;
 import com.asofterspace.toolbox.utils.SortUtils;
 import com.asofterspace.toolbox.Utils;
 
+import java.util.Date;
 import java.util.List;
 
 
 public class Seebrueckeschedulecreator {
 
 	public final static String PROGRAM_TITLE = "SeebrueckeScheduleCreator";
-	public final static String VERSION_NUMBER = "0.0.0.5(" + Utils.TOOLBOX_VERSION_NUMBER + ")";
-	public final static String VERSION_DATE = "11. January 2023 - 1. January 2026";
+	public final static String VERSION_NUMBER = "0.0.0.6(" + Utils.TOOLBOX_VERSION_NUMBER + ")";
+	public final static String VERSION_DATE = "11. January 2023 - 1. April 2026";
 
 	private final static boolean PRINT_VIEW = false;
 
@@ -71,10 +72,11 @@ public class Seebrueckeschedulecreator {
 			// order by future first
 			schedule = SortUtils.reverse(schedule);
 		}
+		Date cutoffDate = DateUtils.addDays(DateUtils.now(), -1);
 		for (ScheduleElement scheduleElem : schedule) {
 			if (!PRINT_VIEW) {
 				// remove old elements
-				if (scheduleElem.getLastApplicableDate().before(DateUtils.now())) {
+				if (scheduleElem.getLastApplicableDate().before(cutoffDate)) {
 					continue;
 				}
 			}
